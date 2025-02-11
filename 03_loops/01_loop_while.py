@@ -1,8 +1,8 @@
 ###
 # 01 - Bucles (while)
-# Permiten ejecutar un bloque de código repetidamente mientras se cumpla una condición
+#  Permiten ejecutar un bloque de código repetidamente mientras se cumpla una condición
 ###
-
+"""
 print("\n Bucle while:")
 
 # Bucle con una simple condición
@@ -72,7 +72,7 @@ while numero < 0:
     print("Lo que introduces debe ser un número, que si no peta!")
 
 print(f"El número que has introducido es {numero}")
-
+"""
 ###
 # EJERCICIOS (while)
 ###
@@ -80,10 +80,21 @@ print(f"El número que has introducido es {numero}")
 # Ejercicio 1: Cuenta atrás
 # Imprime los números del 10 al 1 usando un bucle while.
 print("\nEjercicio 1:")
+numero = 10
+while numero >= 1:
+    print(numero)
+    numero -= 1
 
 # Ejercicio 2: Suma de números pares (while)
 # Calcula la suma de los números pares entre 1 y 20 (inclusive) usando un bucle while.
 print("\nEjercicio 2:")
+suma = 0
+numero = 1
+while numero <= 20:
+    if numero % 2 == 0:
+        suma = numero + suma
+    numero += 1
+print(f"La suma de los números pares entre 1 y 20 es {suma}")
 
 # Ejercicio 3: Factorial de un número
 # Pide al usuario que introduzca un número entero positivo.
@@ -91,6 +102,20 @@ print("\nEjercicio 2:")
 # El factorial de un número entero positivo es el producto de todos los números del 1 al ese número. Por ejemplo, el factorial de 5
 # 5! = 5 x 4 x 3 x 2 x 1 = 120.
 print("\nEjercicio 3:")
+numero = -1
+factorial = 1
+while numero < 0:
+    try:
+        numero = int(input("Escribe un número positivo: "))
+        salvar= numero
+        if numero < 0:
+            print("El número debe ser positivo. Intenta otra vez.")
+    except:
+        print("Lo que introduces debe ser un número, que si no peta!")
+while numero > 0:
+    factorial *= numero
+    numero -= 1
+print(f"El factorial de {salvar}! es: {factorial}")
 
 # Ejercicio 4: Validación de contraseña
 # Pide al usuario que introduzca una contraseña.
@@ -98,13 +123,54 @@ print("\nEjercicio 3:")
 # Usa un bucle while para seguir pidiendo la contraseña hasta que cumpla con los requisitos.
 # Si la contraseña es válida, imprime "Contraseña válida".
 print("\nEjercicio 4:")
+while True:
+    # Solicitar la contraseña al usuario
+    contraseña = input("Introduce una contraseña (de al menos 8 caracteres): ")
+    
+    # Verificar si la contraseña tiene al menos 8 caracteres
+    if len(contraseña) >= 8:
+        print("Contraseña válida")
+        break  # Salir del bucle si la contraseña es válida
+    else:
+        print("La contraseña debe tener al menos 8 caracteres. Inténtalo de nuevo.")
+
 
 # Ejercicio 5: Tabla de multiplicar
 # Pide al usuario que introduzca un número.
 # Imprime la tabla de multiplicar de ese número (del 1 al 10) usando un bucle while.
 print("\nEjercicio 5:")
+multi= int(input("Introduce el numero al que deseses ver la tabla de multiplicar: "))
+paso=int(1)
+while paso <= 10:
+  print(f"{multi}*{paso}= {multi*paso}")
+  paso += 1
 
 # Ejercicio 6: Números primos hasta N
 # Pide al usuario que introduzca un número entero positivo N.
 # Imprime todos los números primos menores o iguales que N usando un bucle while.
 print("\nEjercicio 6:")
+
+numero = -1
+while numero < 0:
+  try:
+    numero = int(input("Escribe un número positivo: "))
+    if numero < 0:
+      print("El número debe ser positivo. Intenta otra vez, majo o maja.")
+  except:
+    print("Lo que introduces debe ser un número, que si no peta!")
+
+print(f"El número que has introducido es {numero}")
+n = int(input("Introduce un número entero positivo N: "))
+numero = 2
+while numero <= n:
+  es_primo = True  # Asumimos que el número es primo hasta que se demuestre lo contrario
+  divisor = 2
+  while divisor * divisor <= numero:  # Optimizamos: no es necesario probar divisores hasta numero
+    if numero % divisor == 0:
+      es_primo = False  # Si encontramos un divisor, no es primo
+      break  # Salimos del bucle interior
+    divisor += 1
+  if es_primo:
+    print(numero)
+
+  numero += 1
