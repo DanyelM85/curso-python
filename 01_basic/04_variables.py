@@ -4,7 +4,7 @@
 # Python es un lenguaje de tipado dinámico y de tipado fuerte.
 ###
 
-# Para Asignar una variable solo hace falta poner el nombre de la variable y asignarle un valor
+# Para asignar una variable solo hace falta poner el nombre de la variable y asignarle un valor
 my_name = "midudev"
 print(my_name)  # Imprime el valor de la variable my_name
 
@@ -67,3 +67,4 @@ print(is_user_logged_in)
 
 name: str = "midudev" # Indica que la variable es una cadena de texto
 print(name)
+
